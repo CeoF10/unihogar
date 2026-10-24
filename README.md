@@ -5,7 +5,6 @@
 > • **Materia:** Desarrollo de Software Móvil  
 > • **Ciclo:** 6to Ciclo "A"  
 > • **Equipo:** Sebastian Velastegui & Neicer Jimenez  
-> • **Docente:** Ing. Patricia León Monar, Mgs.  
 
 ---
 
