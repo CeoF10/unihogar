@@ -1,0 +1,12 @@
+# Ignorar subdirectorios de repositorios independientes
+unihogar-admin-web/
+unihogar-database/
+unihogar-guaranda/
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+.idea/
+.vscode/
