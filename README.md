@@ -2,7 +2,6 @@
 
 > 🎓 **Proyecto Académico** | Universidad Estatal de Bolívar  
 > • **Carrera:** Ingeniería de Software  
-> • **Materia:** Desarrollo de Software Móvil  
 > • **Ciclo:** 6to Ciclo "A"  
 > • **Equipo:** Sebastian Velastegui & Neicer Jimenez  
 
