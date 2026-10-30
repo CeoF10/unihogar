@@ -17,7 +17,7 @@ El ecosistema conecta a estudiantes universitarios con arrendadores verificados 
 
 ## 🏗️ Arquitectura del Ecosistema
 
-El proyecto está dividido en tres componentes especializados e independientes:
+El proyecto está dividido en cuatro componentes especializados e independientes:
 
 ```
                           ┌─────────────────────────────┐
@@ -44,6 +44,7 @@ El proyecto está dividido en tres componentes especializados e independientes:
 | :--- | :--- | :--- | :--- | :--- |
 | **App Móvil** | [**`unihogar-guaranda`**](https://github.com/CeoF10/unihogar-guaranda) | **Público** | Android Nativo, Kotlin/Java | Aplicación orientada a estudiantes para consultar catálogo de viviendas, ubicación y contacto directo con arrendadores. |
 | **Panel Web** | [`unihogar-admin-web`](https://github.com/CeoF10/unihogar-admin-web) | **Privado** | HTML5, CSS3, JavaScript | Dashboard para moderadores y administradores: revisión de publicaciones, gestión de estados y auditoría. |
+| **API REST** | [`unihogar-api`](https://github.com/CeoF10/unihogar-api) | **Privado** | Node.js, Express, JWT | Conecta la app y el panel con la base: cuentas, catálogo, fotos, favoritos, expedientes y auditoría. |
 | **Persistencia** | [`unihogar-database`](https://github.com/CeoF10/unihogar-database) | **Privado** | PostgreSQL 16, Docker Compose, Adminer | Definición del esquema relacional, migraciones y servicios de base de datos en contenedores. |
 
 ---
@@ -59,14 +60,22 @@ docker compose up -d
 ```
 * Acceso a consola Adminer: `http://localhost:8085`
 
-### 2. Abrir el Panel Web Administrativo
+### 2. Iniciar la API
+```bash
+cd ../unihogar-api
+npm install
+cp .env.example .env   # clave de la base y JWT_SECRET
+npm start              # http://localhost:3000/api
+```
+
+### 3. Abrir el Panel Web Administrativo
 ```bash
 cd ../unihogar-admin-web
 # Abrir index.html en tu navegador o mediante un servidor local (Live Server / Python)
 python3 -m http.server 8080
 ```
 
-### 3. Compilar la App Móvil (Android Studio)
+### 4. Compilar la App Móvil (Android Studio)
 ```bash
 cd ../unihogar-guaranda
 # Abrir el directorio en Android Studio y sincronizar Gradle

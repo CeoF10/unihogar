@@ -2,6 +2,7 @@
 unihogar-admin-web/
 unihogar-database/
 unihogar-guaranda/
+unihogar-api/
 
 # Sistema y editores
 .DS_Store
