@@ -1,61 +1,39 @@
-# 🏠 UniHogar — Plataforma de Arriendos Estudiantiles
+# UniHogar
 
-> 🎓 **Proyecto Académico** | Universidad Estatal de Bolívar  
-> • **Carrera:** Ingeniería de Software  
-> • **Ciclo:** 6to Ciclo "A"  
-> • **Equipo:** Sebastian Velastegui & Neicer Jimenez  
+Proyecto académico de la Universidad Estatal de Bolívar para facilitar la búsqueda y publicación de arriendos estudiantiles en Guaranda.
 
----
+**Equipo:** Sebastian Velastegui y Neicer Jimenez.
 
-## 📌 Visión General
+Empieza por la [app Android](https://github.com/CeoF10/unihogar-guaranda) para ver cómo compilarla y conectarla al entorno local. El flujo completo requiere acceso a los módulos privados.
 
-**UniHogar** es una solución integral diseñada para modernizar y centralizar la oferta de arriendos (habitaciones, departamentos y casas) para los estudiantes de la **Universidad Estatal de Bolívar (UEB)** en Guaranda, Ecuador. 
+## Arquitectura
 
-El ecosistema conecta a estudiantes universitarios con arrendadores verificados a través de una experiencia móvil nativa, complementada con un panel web administrativo para la moderación y un backend con persistencia en PostgreSQL sobre contenedores Docker.
-
----
-
-## 🏗️ Arquitectura del Ecosistema
-
-El proyecto está dividido en cuatro componentes especializados e independientes:
-
-```
-                          ┌─────────────────────────────┐
-                          │   UniHogar — Ecosistema     │
-                          └──────────────┬──────────────┘
-                                         │
-        ┌────────────────────────────────┼────────────────────────────────┐
-        ▼                                ▼                                ▼
-┌────────────────────────┐    ┌────────────────────────┐    ┌────────────────────────┐
-│   📱 App Móvil Android │    │ 💻 Panel Web Admin     │    │  🗄️ Base de Datos      │
-│  (Catálogo Estudiantes)│    │  (Gestión y Auditoría) │    │  (PostgreSQL + Docker) │
-│                        │    │                        │    │                        │
-│ • Búsqueda & filtros   │    │ • Validación de perfiles│    │ • Esquema relacional   │
-│ • Georreferenciación   │    │ • Moderación de avisos │    │ • Adminer Web UI       │
-│ • Comparador de arriendo│   │ • Estadísticas globales│    │ • Scripts de seed      │
-└────────────────────────┘    └────────────────────────┘    └────────────────────────┘
+```mermaid
+flowchart TD
+    Android["App Android"] --> API["API REST"]
+    Admin["Panel administrativo"] --> API
+    API --> DB["PostgreSQL"]
 ```
 
----
-
-## 📦 Componentes del Sistema
+## Repositorios
 
 | Módulo | Repositorio | Visibilidad | Tecnologías | Descripción |
 | :--- | :--- | :--- | :--- | :--- |
-| **App Móvil** | [**`unihogar-guaranda`**](https://github.com/CeoF10/unihogar-guaranda) | **Público** | Android Nativo, Kotlin/Java | Aplicación orientada a estudiantes para consultar catálogo de viviendas, ubicación y contacto directo con arrendadores. |
+| **App Móvil** | [**`unihogar-guaranda`**](https://github.com/CeoF10/unihogar-guaranda) | **Público** | Kotlin, Jetpack Compose | Aplicación orientada a estudiantes para consultar catálogo de viviendas, ubicación y contacto directo con arrendadores. |
 | **Panel Web** | [`unihogar-admin-web`](https://github.com/CeoF10/unihogar-admin-web) | **Privado** | HTML5, CSS3, JavaScript | Dashboard para moderadores y administradores: revisión de publicaciones, gestión de estados y auditoría. |
 | **API REST** | [`unihogar-api`](https://github.com/CeoF10/unihogar-api) | **Privado** | Node.js, Express, JWT | Conecta la app y el panel con la base: cuentas, catálogo, fotos, favoritos, expedientes y auditoría. |
 | **Persistencia** | [`unihogar-database`](https://github.com/CeoF10/unihogar-database) | **Privado** | PostgreSQL 16, Docker Compose, Adminer | Definición del esquema relacional, migraciones y servicios de base de datos en contenedores. |
 
----
 
-## 🚀 Inicio Rápido Local
+## Entorno local
 
-Para levantar el entorno completo en local:
+Clona los cuatro repositorios en una misma carpeta. Configura los valores de cada servicio según sus archivos de ejemplo. Arranca primero PostgreSQL y después la API.
 
 ### 1. Iniciar Base de Datos y Servicios
 ```bash
 cd unihogar-database
+cp .env.example .env
+# Edita POSTGRES_PASSWORD antes de iniciar los servicios.
 docker compose up -d
 ```
 * Acceso a consola Adminer: `http://localhost:8085`
@@ -78,12 +56,5 @@ python3 -m http.server 8080
 ### 4. Compilar la App Móvil (Android Studio)
 ```bash
 cd ../unihogar-guaranda
-# Abrir el directorio en Android Studio y sincronizar Gradle
+# Abrir en Android Studio y seguir la configuración del README de la app
 ```
-
----
-
-## 🔒 Seguridad y Privacidad
-
-- **Verificación institucional:** Los perfiles de estudiantes se asocian al dominio institucional `@ueb.edu.ec`.
-- **Protección de datos:** Los componentes de persistencia y administración se gestionan de forma privada para salvaguardar credenciales y registros de arrendadores y estudiantes.
