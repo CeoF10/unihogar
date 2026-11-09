@@ -34,14 +34,14 @@ Clona los cuatro repositorios en una misma carpeta. Configura los valores de cad
 cd unihogar-database
 cp .env.example .env
 # Edita POSTGRES_PASSWORD antes de iniciar los servicios.
-docker compose up -d
+docker compose up -d --wait
 ```
 * Acceso a consola Adminer: `http://localhost:8085`
 
 ### 2. Iniciar la API
 ```bash
 cd ../unihogar-api
-npm install
+npm ci
 cp .env.example .env   # clave de la base y JWT_SECRET
 npm start              # http://localhost:3000/api
 ```
