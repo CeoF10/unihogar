@@ -25,6 +25,10 @@ flowchart TD
 | **Persistencia** | [`unihogar-database`](https://github.com/CeoF10/unihogar-database) | **Privado** | PostgreSQL 16, Docker Compose, Adminer | Definición del esquema relacional, migraciones y servicios de base de datos en contenedores. |
 
 
+## Publicar
+
+Para publicar gratis la API, el panel y la base, y subir la app a Google Play, sigue [DESPLIEGUE.md](DESPLIEGUE.md).
+
 ## Entorno local
 
 Clona los cuatro repositorios en una misma carpeta. Configura los valores de cada servicio según sus archivos de ejemplo. Arranca primero PostgreSQL y después la API.
