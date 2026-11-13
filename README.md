@@ -25,6 +25,13 @@ flowchart TD
 | **Persistencia** | [`unihogar-database`](https://github.com/CeoF10/unihogar-database) | **Privado** | PostgreSQL 16, Docker Compose, Adminer | Definición del esquema relacional, migraciones y servicios de base de datos en contenedores. |
 
 
+## Demostración APE
+
+Con los cuatro módulos actualizados, aplica las migraciones pendientes y ejecuta `npm run demo:fotos`
+desde la API conectada a la base local de demostración. En la app, abre la habitación #1 y toca
+**Ver recorrido 360°**. El [recorrido de prueba y la evidencia](PRUEBAS_APE.md) detallan los flujos
+para estudiante, propietario y administración.
+
 ## Publicar
 
 Para publicar gratis la API, el panel y la base, y subir la app a Google Play, sigue [DESPLIEGUE.md](DESPLIEGUE.md).
