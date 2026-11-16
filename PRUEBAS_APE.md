@@ -2,7 +2,7 @@
 
 ## Preparar la demostración
 
-1. Inicia PostgreSQL con los datos de demostración. En una base existente, aplica en orden las migraciones pendientes hasta `008_modelo_3d.sql`. Usa una base local de pruebas.
+1. Inicia PostgreSQL con los datos de demostración. En una base existente, aplica en orden las migraciones pendientes hasta `009_indice_fotos.sql`. Usa una base local de pruebas.
 2. Configura e inicia la API. En `unihogar-api`, ejecuta `npm run demo:fotos`. Las imágenes ficticias se cargan en los anuncios #1, #5 y #7. La portada del anuncio #1 se obtuvo del mismo panorama que usa el visor.
 3. Abre la app Android y conecta el servidor en la pantalla de acceso. Usa `http://10.0.2.2:3000/api/` desde el emulador para una API local en el puerto 3000. La versión de producción utiliza HTTPS.
 4. Abre el panel con la misma API. Los enlaces de confirmación y recuperación se pueden revisar en la salida de la API local o recibir por correo al configurar Brevo.

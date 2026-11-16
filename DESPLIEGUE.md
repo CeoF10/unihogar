@@ -4,13 +4,20 @@ Todo el código ya está preparado. Faltan las cuentas, que solo puedes crear t�
 
 | Pieza | Servicio gratis | Límite que importa |
 |---|---|---|
-| Base de datos | [Neon](https://neon.tech) | 0,5 GB. Las fotos y documentos se guardan ahí: alcanza para unos cientos de fotos |
+| Base de datos | [Supabase](https://supabase.com) (en uso) o [Neon](https://neon.tech) | 0,5 GB. Las fotos y documentos se guardan ahí. Supabase pausa el proyecto tras una semana sin uso |
 | API | [Render](https://render.com) (Web Service, plan Free) | Se duerme tras 15 min sin uso; la primera petición tarda ~50 s. La app ya espera hasta 75 s |
 | Panel admin | Render (Static Site) | Sin límites relevantes |
 | Correos | [Brevo](https://www.brevo.com) | 300 correos al día |
 | Política de privacidad y eliminación de cuenta | La propia API: `/privacidad` y `/eliminar-cuenta` | — |
 
-## 1. Base de datos en Neon
+## 1. Base de datos
+
+**Supabase (la que usa la versión publicada):** en el proyecto pulsa **Connect → Session pooler** y copia la URI.
+Cambia `[YOUR-PASSWORD]` por la clave de la base y agrega `?sslmode=no-verify` al final. La conexión directa
+de Supabase solo funciona por IPv6 y Render no puede usarla.
+
+**Neon (alternativa):**
+
 
 1. Crea una cuenta en Neon y un proyecto (región **US East** o la más cercana a Render Oregon).
 2. Copia la *connection string* (termina en `?sslmode=require`).
@@ -51,7 +58,7 @@ Aplícalas antes de desplegar la API que las necesita.
 
 | Variable | Valor |
 |---|---|
-| `DATABASE_URL` | La connection string de Neon |
+| `DATABASE_URL` | La cadena del Session pooler de Supabase o la de Neon |
 | `PUBLIC_API_URL` | `https://unihogar-api.onrender.com/api` (usa la URL real que te asigne Render) |
 | `BREVO_API_KEY` | La clave de Brevo |
 | `MAIL_FROM` | El remitente verificado en Brevo |
