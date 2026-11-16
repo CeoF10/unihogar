@@ -29,7 +29,7 @@ flowchart TD
 
 Con los cuatro módulos actualizados, aplica las migraciones pendientes y ejecuta `npm run demo:fotos`
 desde la API conectada a la base local de demostración. En la app, abre la habitación #1 y toca
-**Ver recorrido 360°**. El [recorrido de prueba y la evidencia](PRUEBAS_APE.md) detallan los flujos
+**Ver recorrido 360°** y **Explorar habitación en 3D**. El [recorrido de prueba y la evidencia](PRUEBAS_APE.md) detallan los flujos
 para estudiante, propietario y administración.
 
 ## Publicar
