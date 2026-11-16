@@ -32,6 +32,13 @@ desde la API conectada a la base local de demostración. En la app, abre la habi
 **Ver recorrido 360°** y **Explorar habitación en 3D**. El [recorrido de prueba y la evidencia](PRUEBAS_APE.md) detallan los flujos
 para estudiante, propietario y administración.
 
+## Versión publicada
+
+- API: `https://unihogar-api.onrender.com/api` (Render, plan gratuito, con la base en Supabase)
+- Panel administrativo: `https://unihogar-admin.onrender.com`
+- App: genera el APK con `./gradlew :app:assembleRelease` en `unihogar-guaranda` e instálalo en el teléfono.
+  Usa la API publicada. La primera petición puede tardar cerca de un minuto si el servidor estaba dormido.
+
 ## Publicar
 
 Para publicar gratis la API, el panel y la base, y subir la app a Google Play, sigue [DESPLIEGUE.md](DESPLIEGUE.md).
