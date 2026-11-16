@@ -28,6 +28,13 @@ cd ../unihogar-api
 DATABASE_URL='postgres://...neon.tech/neondb?sslmode=require' node src/scripts/crear-admin.js correo@ueb.edu.ec 'UNA_CLAVE_LARGA'
 ```
 
+### Actualizar una base ya publicada (Supabase u otra)
+
+Si la base ya existe, no vuelvas a correr `crear-base.sh`. En el **SQL Editor** de Supabase, o con `psql`,
+ejecuta las migraciones nuevas de `unihogar-database/migrations` en orden. Después registra cada una en la tabla
+`unihogar_migration` con `INSERT INTO unihogar_migration (nombre, fecha) VALUES ('migrations/008_modelo_3d.sql', now());`.
+Aplícalas antes de desplegar la API que las necesita.
+
 ## 2. Correos con Brevo
 
 1. Crea la cuenta en Brevo.
