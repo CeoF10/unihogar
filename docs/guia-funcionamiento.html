@@ -13,6 +13,12 @@ table{border-collapse:collapse;width:100%;margin:6px 0;font-size:9.5pt;break-ins
 th,td{border:1px solid #d5dbe3;padding:4px 6px;text-align:left;vertical-align:top}th{background:#12344a;color:#fff}
 code{background:#eef1f5;padding:0 3px;border-radius:3px;font-size:9pt}
 section{break-inside:avoid-page}
+.fig{display:flex;gap:8px;align-items:flex-start;margin:8px 0;break-inside:avoid}
+.fig figure{margin:0;text-align:center;font-size:8.5pt;color:#64748b}
+.fig img{border:1px solid #d5dbe3;border-radius:6px;display:block}
+.flujo{display:flex;align-items:center;gap:6px;margin:8px 0;break-inside:avoid}
+.flujo div{flex:1;background:#f6f7fa;border:1px solid #d5dbe3;border-radius:8px;padding:6px;font-size:8.8pt;text-align:center}
+.flujo b{color:#b52d46}.flecha{flex:0 0 auto!important;border:0!important;background:none!important;font-size:14pt;color:#12344a}
 </style>
 <h1>Uni<span>Hogar</span> Guaranda</h1>
 <p class="sub">Guía rápida de funcionamiento · cuentas, inmuebles, fotos 360°, modelo 3D y panel de Bienestar UEB</p>
@@ -57,7 +63,7 @@ section{break-inside:avoid-page}
 
 <h2>4. Recorrido 360° y modelo 3D</h2>
 <h3>Panorama 360°</h3>
-<ul><li><b>Mis publicaciones → anuncio → Recorrido 360°</b>.</li>
+<ul><li><b>Mis publicaciones → Subir panorama 360°</b>.</li>
 <li>Imagen equirectangular <b>JPEG 2:1</b>, de 512 a 4096 px de ancho y hasta 5 MB. Subir otra reemplaza la anterior.</li>
 <li>El estudiante abre <b>Ver recorrido 360°</b> en la ficha: girar, hacer zoom y centrar.</li></ul>
 <h3>Modelo 3D ilustrativo</h3>
@@ -83,4 +89,49 @@ section{break-inside:avoid-page}
 
 <h2>7. Arquitectura implementada</h2>
 <p>App Android nativa (Kotlin, Jetpack Compose, MVVM) → API REST (Node.js y Express, JWT y bcrypt) → PostgreSQL 16. Mapas con osmdroid (OpenStreetMap). Producción: API y panel en Render y base en Supabase, con HTTPS.</p>
+
+<h2 style="break-before:page">9. Caso práctico: de las fotos del propietario al 360° y al 3D</h2>
+<p><b>Escenario.</b> Martha publica la <i>Habitación amoblada junto a la UEB</i> (anuncio #9). Tiene un celular Android, una cinta métrica y 15 minutos.</p>
+
+<h3>Paso 1 · Fotos normales (obligatorias)</h3>
+<p>En el paso 4 del asistente toca <b>Agregar</b> y elige de 1 a 5 fotos de la galería. El servidor revisa que sean JPEG, PNG o WebP de hasta 5 MB y conserva el orden. La primera foto es la portada. Sin al menos una foto, el anuncio no se puede publicar.</p>
+
+<h3>Paso 2 · Recorrido 360° (opcional): la foto panorámica la toma el propietario</h3>
+<p>La app <b>no convierte fotos normales en un 360°</b>: el propietario sube una foto que ya es panorámica. Para tomarla, se para en el centro del cuarto y usa una de estas opciones:</p>
+<ul><li>El modo <b>Photo Sphere / Panorámica 360°</b> de la cámara del teléfono, si lo trae, o una app de fotos 360°. Se gira en el mismo punto siguiendo los círculos de la pantalla.</li>
+<li>Una cámara 360° (Insta360, Ricoh Theta u otra), exportando la foto como imagen equirectangular.</li></ul>
+<p>El resultado es una imagen <b>equirectangular</b>: un rectángulo dos veces más ancho que alto que contiene toda la vuelta del cuarto.</p>
+<div class="flujo">
+<div><b>1</b><br>Toma la foto 360° en el centro del cuarto</div><div class="flecha">→</div>
+<div><b>2</b><br>Mis publicaciones → <b>Subir panorama 360°</b> → elige el JPEG</div><div class="flecha">→</div>
+<div><b>3</b><br>El servidor revisa: JPEG, proporción 2:1, de 512 a 4096 px y hasta 5 MB</div><div class="flecha">→</div>
+<div><b>4</b><br>En la ficha aparece <b>Ver recorrido 360°</b></div></div>
+<div class="fig">
+<figure><img src="img/panorama-2a1.jpg" style="width:430px"><figcaption>Lo que sube Martha: panorama equirectangular 2:1</figcaption></figure>
+<figure><img src="img/pano-1.jpg" style="width:150px"><figcaption>Lo que ve el estudiante: el visor de la app</figcaption></figure></div>
+<p>El visor proyecta esa imagen dentro de una esfera. El estudiante gira con el dedo, acerca con <b>+/−</b> y vuelve con <b>Centrar</b>. Si la imagen no es 2:1, la app responde: <i>“Use un JPEG panorámico 2:1, de 512 a 4096 píxeles de ancho”</i>. Subir otro panorama reemplaza el anterior.</p>
+
+<h3>Paso 3 · Modelo 3D ilustrativo (opcional): se arma con medidas, no con fotos</h3>
+<p>El 3D <b>no se genera a partir de las fotos</b>. Es una maqueta que el propietario arma en un formulario y que la app dibuja con las medidas reales:</p>
+<div class="flujo">
+<div><b>1</b><br>Mide el ancho y el largo del cuarto (2 a 8 m)</div><div class="flecha">→</div>
+<div><b>2</b><br>Mis publicaciones → <b>Crear modelo 3D</b></div><div class="flecha">→</div>
+<div><b>3</b><br>Elige piso, pared, ropa de cama, ventana y muebles</div><div class="flecha">→</div>
+<div><b>4</b><br>Revisa la vista previa y toca <b>Guardar</b></div></div>
+<div class="fig">
+<figure><img src="img/foto-normal.jpg" style="width:200px"><figcaption>Foto real (#9)</figcaption></figure>
+<figure><img src="img/3d-1.jpg" style="width:135px"><figcaption>Su modelo 3D: 3 × 3,5 m, madera, pared crema, cama simple, escritorio y armario</figcaption></figure>
+<figure><img src="img/3d-4.jpg" style="width:135px"><figcaption>#12: 6 × 4,5 m con comedor y cocineta</figcaption></figure>
+<figure><img src="img/pano-4.jpg" style="width:135px"><figcaption>#12 en el visor 360°</figcaption></figure></div>
+<p>El estudiante toca <b>Explorar habitación en 3D</b>: ve el cuarto desde arriba, pulsa <b>Entrar</b> para verlo a la altura de una persona, gira con un dedo y acerca con dos. La etiqueta <i>Modelo ilustrativo</i> deja claro que no es una foto.</p>
+
+<h3>Qué pasa si no sube nada opcional</h3>
+<table><tr><th>Tiene</th><th>Lo que ve el estudiante</th></tr>
+<tr><td>Solo fotos</td><td>Galería, mapa y costos. No aparecen los botones de 360° ni de 3D (RF14).</td></tr>
+<tr><td>Fotos + 360°</td><td>Además, <b>Ver recorrido 360°</b>.</td></tr>
+<tr><td>Fotos + modelo 3D</td><td>Además, <b>Explorar habitación en 3D</b>.</td></tr>
+<tr><td>Todo</td><td>Los dos botones, como en los anuncios #9 a #13.</td></tr></table>
+
+<h3>Mejora futura: 3D automático desde fotos</h3>
+<p>Crear el 3D o el 360° directamente desde fotos normales requiere <b>fotogrametría</b> o técnicas como <i>Gaussian Splatting</i>: decenas de fotos de cada cuarto y un servidor con tarjeta gráfica para procesarlas. Eso supera el alcance y el costo gratuito del producto mínimo viable, por eso se eligieron el panorama aportado por el propietario y el modelo ilustrativo. Queda como trabajo futuro.</p>
 </html>
