@@ -1,0 +1,50 @@
+RF01 registro y confirmación
+  PASS estudiante con correo personal rechazado
+  PASS estudiante UEB registrado
+  PASS no entra sin confirmar el correo
+  PASS correo confirmado con el enlace
+  PASS correo duplicado rechazado
+  PASS propietario con correo UEB rechazado
+  PASS cédula inválida rechazada
+  PASS propietario registrado
+RF02 sesión y recuperación
+  PASS credenciales inválidas rechazadas
+  PASS recuperar envía enlace
+  PASS el enlace abre el formulario de recuperación
+  PASS clave restablecida desde el formulario
+  PASS enlace de un solo uso
+  PASS entra con la clave nueva
+RF03 crear y publicar
+  PASS precio negativo rechazado
+  PASS borrador con GPS creado
+  PASS no publica sin foto
+RF05 fotos
+  PASS archivo que no es imagen rechazado
+  PASS foto de más de 5 MB rechazada
+  PASS dos fotos subidas en orden
+RF04 solo anuncios propios
+  PASS otra cuenta no puede editar
+  PASS otra cuenta no puede borrar fotos
+  PASS dueño edita su anuncio
+  PASS publicado a auditoría
+RF07 ubicación manual y RF08 cargos
+  PASS ubicación marcada a mano aceptada
+  PASS punto fuera de Guaranda rechazado
+  PASS GPS sin precisión rechazado
+Panel de administración
+  PASS estudiante no entra al admin
+  PASS observar exige motivo
+  PASS aprobado aparece en el catálogo
+  PASS RF08 cargo desconocido deja el total pendiente
+  PASS Bienestar oculta el anuncio
+  PASS el dueño no revierte una ocultación administrativa
+  PASS Bienestar puede volver a mostrarlo
+RF06 filtros y paginación
+  PASS la página respeta el límite
+  PASS sin resultados sugiere ajustar filtros
+RF04 pausar retira del catálogo
+  PASS pausado ya no aparece
+RF09 favoritos
+  PASS marcar dos veces no duplica
+
+Resultado: 38 aprobadas, 0 fallidas

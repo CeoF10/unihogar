@@ -1,0 +1,86 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>UniHogar Guaranda · Cómo funciona</title>
+<style>
+@page{size:A4;margin:18mm 16mm}
+body{font-family:"Inter","Segoe UI",Arial,sans-serif;color:#172d3b;font-size:10.5pt;line-height:1.45}
+h1{color:#12344a;font-size:22pt;margin:0}h1 span{color:#b52d46}
+.sub{color:#64748b;margin:2px 0 14px}
+h2{color:#12344a;font-size:13.5pt;border-bottom:2px solid #b52d46;padding-bottom:3px;margin:18px 0 8px;break-after:avoid}
+h3{font-size:11pt;margin:10px 0 4px;color:#b52d46}
+ol,ul{margin:4px 0 6px 18px;padding:0}li{margin:2px 0}
+.box{background:#f6f7fa;border-left:4px solid #12344a;padding:7px 10px;margin:8px 0;break-inside:avoid}
+.warn{border-left-color:#b52d46}
+table{border-collapse:collapse;width:100%;margin:6px 0;font-size:9.5pt;break-inside:avoid}
+th,td{border:1px solid #d5dbe3;padding:4px 6px;text-align:left;vertical-align:top}th{background:#12344a;color:#fff}
+code{background:#eef1f5;padding:0 3px;border-radius:3px;font-size:9pt}
+section{break-inside:avoid-page}
+</style>
+<h1>Uni<span>Hogar</span> Guaranda</h1>
+<p class="sub">Guía rápida de funcionamiento · cuentas, inmuebles, fotos 360°, modelo 3D y panel de Bienestar UEB</p>
+
+<h2>1. Roles del sistema</h2>
+<table><tr><th>Rol</th><th>Correo</th><th>Qué puede hacer</th></tr>
+<tr><td>Estudiante</td><td>Institucional <code>@ueb.edu.ec</code></td><td>Buscar, filtrar, ver mapa y ficha, favoritos, comparar hasta 3, pedir visitas, contactar, reportar.</td></tr>
+<tr><td>Propietario</td><td>Personal (no <code>@ueb.edu.ec</code>) + cédula válida</td><td>Publicar inmuebles, subir fotos y panorama 360°, crear el modelo 3D, pausar, marcar arrendado, responder visitas.</td></tr>
+<tr><td>Administrador</td><td>Cuenta creada desde la base</td><td>Panel web: aprobar expedientes y anuncios, ocultar por reportes, crear cuentas de estudiante.</td></tr></table>
+<p>Una misma cuenta puede tener los dos perfiles (estudiante y propietario). Los permisos se comprueban siempre en el servidor.</p>
+
+<h2>2. Creación de usuarios</h2>
+<h3>Estudiante desde la app</h3>
+<ol><li>Bienvenida → <b>Crear cuenta</b> → perfil <b>Estudiante</b>.</li>
+<li>Nombre completo (3–100 caracteres), correo <code>@ueb.edu.ec</code> y clave de al menos 8 caracteres.</li>
+<li>Llega un correo con un enlace de confirmación (vale 24 horas y se usa una sola vez).</li>
+<li>Tras confirmar, inicia sesión. Sin confirmar, el inicio de sesión se rechaza.</li></ol>
+<h3>Estudiante desde el panel</h3>
+<ol><li>Panel → <b>Usuarios</b> → <b>Crear una cuenta</b> con nombre y correo institucional.</li>
+<li>El estudiante recibe un enlace de activación y elige su clave. Reenviar el enlace anula el anterior.</li></ol>
+<h3>Propietario</h3>
+<ol><li>Bienvenida → <b>Crear cuenta</b> → perfil <b>Propietario</b>.</li>
+<li>Correo personal, cédula ecuatoriana válida (módulo 10), teléfono y clave.</li>
+<li>Confirma el correo e inicia sesión.</li>
+<li>Sube su <b>expediente</b>: cédula, título de propiedad, planilla de servicio y selfie con la cédula. Bienestar UEB lo revisa en el panel. Estos documentos nunca se publican.</li></ol>
+<h3>Segundo perfil y recuperación</h3>
+<ul><li><b>Perfil → Activar otro perfil</b>: se confirma el otro correo y se vuelve a iniciar sesión con el perfil elegido.</li>
+<li><b>¿Olvidó su clave?</b>: llega un enlace temporal (30 min, un solo uso) para poner una clave nueva.</li></ul>
+<div class="box warn">En producción, los correos salen por Brevo. Si no llegan, revisar <code>BREVO_API_KEY</code> y <code>MAIL_FROM</code> en Render. En local, el enlace aparece en la consola de la API.</div>
+
+<h2>3. Publicación de inmuebles</h2>
+<p>El propietario toca <b>Publicar inmueble</b>. El asistente tiene 4 pasos:</p>
+<table><tr><th>Paso</th><th>Datos</th></tr>
+<tr><td>1. Datos</td><td>Tipo (Habitación, Departamento o Casa), título, dirección, dormitorios y descripción.</td></tr>
+<tr><td>2. Ubicación</td><td>GPS estando en el inmueble (precisión ≤ 50 m) o un toque en el mapa, sin dar permiso de GPS. Debe estar dentro de Guaranda (15 km).</td></tr>
+<tr><td>3. Precio y servicios</td><td>Campus de referencia, arriendo, depósito, servicios, cargos mensuales (un cargo con monto desconocido se marca <i>por confirmar</i>), contacto de WhatsApp y reglas.</td></tr>
+<tr><td>4. Fotos y publicar</td><td>De 1 a 5 fotos (JPEG, PNG o WebP de hasta 5 MB; la primera es la portada), declaración de autorización y <b>Publicar</b>.</td></tr></table>
+<p>También se puede <b>guardar como borrador</b>. Al publicar, el anuncio pasa a <b>En auditoría</b>.</p>
+<h3>Ciclo de estados</h3>
+<p><code>BORRADOR</code> → <code>EN_AUDITORIA</code> → (Bienestar aprueba) <code>DISPONIBLE</code> ⇄ <code>PAUSADO</code> / <code>ARRENDADO</code>. Si Bienestar observa el anuncio, vuelve a borrador con el motivo. Si oculta un anuncio por un reporte, sale del catálogo y queda registrado quién lo hizo y cuándo.</p>
+<p>Solo se ven en el catálogo los anuncios <b>DISPONIBLE</b>, aprobados y no ocultos. Una visita aceptada no marca el inmueble como arrendado.</p>
+
+<h2>4. Recorrido 360° y modelo 3D</h2>
+<h3>Panorama 360°</h3>
+<ul><li><b>Mis publicaciones → anuncio → Recorrido 360°</b>.</li>
+<li>Imagen equirectangular <b>JPEG 2:1</b>, de 512 a 4096 px de ancho y hasta 5 MB. Subir otra reemplaza la anterior.</li>
+<li>El estudiante abre <b>Ver recorrido 360°</b> en la ficha: girar, hacer zoom y centrar.</li></ul>
+<h3>Modelo 3D ilustrativo</h3>
+<ul><li><b>Mis publicaciones → Crear modelo 3D</b>: ancho y largo (2 a 8 m), piso, color de pared, ropa de cama, ventana y muebles.</li>
+<li>Muebles: puerta, cama simple <i>o</i> doble, velador, armario, escritorio, repisa, cocineta, refrigeradora, comedor, alfombra y planta.</li>
+<li>Vista previa antes de guardar. El estudiante toca <b>Explorar habitación en 3D</b>, pulsa <b>Entrar</b>, gira con un dedo y acerca con dos.</li>
+<li>Si no hay panorama ni modelo, la ficha sigue funcionando con la galería y el mapa.</li></ul>
+
+<h2>5. Experiencia del estudiante</h2>
+<ul><li><b>Catálogo</b>: búsqueda, filtros combinados (tipo, precio, servicios y distancia al campus), paginación y lista o mapa con el mismo filtro.</li>
+<li><b>Ficha</b>: galería, costo desglosado (arriendo, cargos y depósito; sin total definitivo si falta un cargo), propietario y fecha de actualización.</li>
+<li><b>Favoritos</b> sin duplicados, que se conservan al cerrar sesión. <b>Comparador</b> de hasta 3 viviendas.</li>
+<li><b>Visitas</b>: el estudiante propone una fecha y el propietario acepta, rechaza o propone otra. Estados: pendiente, aceptada, rechazada, reprogramación propuesta y cancelada.</li>
+<li><b>Contacto</b>: WhatsApp con un mensaje que identifica el anuncio, copiar el número, compartir y <b>Cómo llegar</b>.</li>
+<li><b>Reportar</b> un anuncio con un motivo de 5 a 500 caracteres.</li></ul>
+
+<h2>6. Panel de Bienestar UEB (web)</h2>
+<table><tr><th>Sección</th><th>Acción</th></tr>
+<tr><td>Expedientes</td><td>Ver los documentos privados del propietario y aprobar u observar.</td></tr>
+<tr><td>Auditoría de anuncios</td><td>Aprobar (exige al menos una foto y ubicación dentro de Guaranda) u observar con motivo.</td></tr>
+<tr><td>Reportes</td><td>Ocultar el anuncio o descartar el reporte. Queda registro del moderador y la fecha.</td></tr>
+<tr><td>Usuarios</td><td>Crear cuentas de estudiante y reenviar el enlace de activación.</td></tr></table>
+
+<h2>7. Arquitectura implementada</h2>
+<p>App Android nativa (Kotlin, Jetpack Compose, MVVM) → API REST (Node.js y Express, JWT y bcrypt) → PostgreSQL 16. Mapas con osmdroid (OpenStreetMap). Producción: API y panel en Render y base en Supabase, con HTTPS.</p>
+</html>

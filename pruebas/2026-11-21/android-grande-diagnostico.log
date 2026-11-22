@@ -1,0 +1,245 @@
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.AppAppearanceTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.example.unihogarguaranda.AppAppearanceTest:
+INSTRUMENTATION_STATUS: test=welcomeActionsRemainAccessible
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.AppAppearanceTest
+INSTRUMENTATION_STATUS: current=1
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=welcomeActionsRemainAccessible
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.AppAppearanceTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=catalogCategoriesAndFavoritesWork
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.AppAppearanceTest
+INSTRUMENTATION_STATUS: current=2
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=catalogCategoriesAndFavoritesWork
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+com.example.unihogarguaranda.IntegratedFlowTest:
+INSTRUMENTATION_STATUS: test=ownerCanMarkLocationManuallyAndResumeWizard
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=3
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains 'WiFi' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.example.unihogarguaranda.IntegratedFlowTest.ownerCanMarkLocationManuallyAndResumeWizard(IntegratedFlowTest.kt:248)
+
+INSTRUMENTATION_STATUS: stream=
+Error in ownerCanMarkLocationManuallyAndResumeWizard(com.example.unihogarguaranda.IntegratedFlowTest):
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains 'WiFi' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.example.unihogarguaranda.IntegratedFlowTest.ownerCanMarkLocationManuallyAndResumeWizard(IntegratedFlowTest.kt:248)
+
+INSTRUMENTATION_STATUS: test=ownerCanMarkLocationManuallyAndResumeWizard
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=favoritePersistsAfterLogoutAndLogin
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=4
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=favoritePersistsAfterLogoutAndLogin
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=detailComparisonAndContactCopyUseRealListing
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=5
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=detailComparisonAndContactCopyUseRealListing
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=ownerCanAcceptVisitAndItDoesNotRentTheListing
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=6
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=ownerCanAcceptVisitAndItDoesNotRentTheListing
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=credentialsAreRejectedAndRecoveryIsAvailable
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=7
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=credentialsAreRejectedAndRecoveryIsAvailable
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=filterAndMapSurviveRotationWithoutLocationPermission
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=8
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=.
+INSTRUMENTATION_STATUS: test=filterAndMapSurviveRotationWithoutLocationPermission
+INSTRUMENTATION_STATUS_CODE: 0
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stream=
+INSTRUMENTATION_STATUS: test=ownerCanPublishWithSystemPhotoPicker
+INSTRUMENTATION_STATUS_CODE: 1
+INSTRUMENTATION_STATUS: class=com.example.unihogarguaranda.IntegratedFlowTest
+INSTRUMENTATION_STATUS: current=9
+INSTRUMENTATION_STATUS: id=AndroidJUnitRunner
+INSTRUMENTATION_STATUS: numtests=9
+INSTRUMENTATION_STATUS: stack=java.lang.NullPointerException: Can't toast on a thread that has not called Looper.prepare()
+	at com.android.internal.util.Preconditions.nullPointerExceptionObj(Preconditions.java:899)
+	at com.android.internal.util.Preconditions.checkNotNull(Preconditions.java:193)
+	at android.widget.Toast.getLooper(Toast.java:188)
+	at android.widget.Toast.<init>(Toast.java:173)
+	at android.widget.Toast.makeText(Toast.java:512)
+	at android.widget.Toast.makeText(Toast.java:501)
+	at com.example.unihogarguaranda.ui.home.OwnerHomeScreenKt.OwnerHomeScreen$lambda$41$lambda$40(OwnerHomeScreen.kt:70)
+	at com.example.unihogarguaranda.ui.home.OwnerHomeScreenKt$$ExternalSyntheticLambda7.invoke(D8$$SyntheticClass:0)
+	at com.example.unihogarguaranda.ui.screens.RegisterPropertyWizardScreenKt$RegisterPropertyWizardScreen$publicar$1.invokeSuspend(RegisterPropertyWizardScreen.kt:202)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at androidx.compose.ui.test.ApplyingContinuationInterceptor$SendApplyContinuation.resumeWith(ApplyingContinuationInterceptor.kt:52)
+	at androidx.compose.ui.test.FrameDeferringContinuationInterceptor$FrameDeferredContinuation.resumeWith(FrameDeferringContinuationInterceptor.jvmAndAndroid.kt:187)
+	at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:165)
+	at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:154)
+	at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeWith(CancellableContinuationImpl.kt:359)
+	at retrofit2.KotlinExtensions$awaitResponse$2$2.onResponse(KotlinExtensions.kt:99)
+	at retrofit2.OkHttpCall$1.onResponse(OkHttpCall.java:164)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:1572)
+
+INSTRUMENTATION_STATUS: stream=
+Error in ownerCanPublishWithSystemPhotoPicker(com.example.unihogarguaranda.IntegratedFlowTest):
+java.lang.NullPointerException: Can't toast on a thread that has not called Looper.prepare()
+	at com.android.internal.util.Preconditions.nullPointerExceptionObj(Preconditions.java:899)
+	at com.android.internal.util.Preconditions.checkNotNull(Preconditions.java:193)
+	at android.widget.Toast.getLooper(Toast.java:188)
+	at android.widget.Toast.<init>(Toast.java:173)
+	at android.widget.Toast.makeText(Toast.java:512)
+	at android.widget.Toast.makeText(Toast.java:501)
+	at com.example.unihogarguaranda.ui.home.OwnerHomeScreenKt.OwnerHomeScreen$lambda$41$lambda$40(OwnerHomeScreen.kt:70)
+	at com.example.unihogarguaranda.ui.home.OwnerHomeScreenKt$$ExternalSyntheticLambda7.invoke(D8$$SyntheticClass:0)
+	at com.example.unihogarguaranda.ui.screens.RegisterPropertyWizardScreenKt$RegisterPropertyWizardScreen$publicar$1.invokeSuspend(RegisterPropertyWizardScreen.kt:202)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at androidx.compose.ui.test.ApplyingContinuationInterceptor$SendApplyContinuation.resumeWith(ApplyingContinuationInterceptor.kt:52)
+	at androidx.compose.ui.test.FrameDeferringContinuationInterceptor$FrameDeferredContinuation.resumeWith(FrameDeferringContinuationInterceptor.jvmAndAndroid.kt:187)
+	at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:165)
+	at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:154)
+	at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeWith(CancellableContinuationImpl.kt:359)
+	at retrofit2.KotlinExtensions$awaitResponse$2$2.onResponse(KotlinExtensions.kt:99)
+	at retrofit2.OkHttpCall$1.onResponse(OkHttpCall.java:164)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:1572)
+
+INSTRUMENTATION_STATUS: test=ownerCanPublishWithSystemPhotoPicker
+INSTRUMENTATION_STATUS_CODE: -2
+INSTRUMENTATION_RESULT: stream=
+
+Time: 64.609
+There were 2 failures:
+1) ownerCanMarkLocationManuallyAndResumeWizard(com.example.unihogarguaranda.IntegratedFlowTest)
+java.lang.AssertionError: Failed: assertExists.
+Reason: Expected exactly '1' node but could not find any node that satisfies: (Text + InputText + EditableText contains 'WiFi' (ignoreCase: false))
+
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow(SemanticsNodeInteraction.kt:178)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.fetchOneOrThrow$default(SemanticsNodeInteraction.kt:150)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists(SemanticsNodeInteraction.kt:125)
+	at androidx.compose.ui.test.SemanticsNodeInteraction.assertExists$default(SemanticsNodeInteraction.kt:124)
+	at com.example.unihogarguaranda.IntegratedFlowTest.ownerCanMarkLocationManuallyAndResumeWizard(IntegratedFlowTest.kt:248)
+2) ownerCanPublishWithSystemPhotoPicker(com.example.unihogarguaranda.IntegratedFlowTest)
+java.lang.NullPointerException: Can't toast on a thread that has not called Looper.prepare()
+	at com.android.internal.util.Preconditions.nullPointerExceptionObj(Preconditions.java:899)
+	at com.android.internal.util.Preconditions.checkNotNull(Preconditions.java:193)
+	at android.widget.Toast.getLooper(Toast.java:188)
+	at android.widget.Toast.<init>(Toast.java:173)
+	at android.widget.Toast.makeText(Toast.java:512)
+	at android.widget.Toast.makeText(Toast.java:501)
+	at com.example.unihogarguaranda.ui.home.OwnerHomeScreenKt.OwnerHomeScreen$lambda$41$lambda$40(OwnerHomeScreen.kt:70)
+	at com.example.unihogarguaranda.ui.home.OwnerHomeScreenKt$$ExternalSyntheticLambda7.invoke(D8$$SyntheticClass:0)
+	at com.example.unihogarguaranda.ui.screens.RegisterPropertyWizardScreenKt$RegisterPropertyWizardScreen$publicar$1.invokeSuspend(RegisterPropertyWizardScreen.kt:202)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at androidx.compose.ui.test.ApplyingContinuationInterceptor$SendApplyContinuation.resumeWith(ApplyingContinuationInterceptor.kt:52)
+	at androidx.compose.ui.test.FrameDeferringContinuationInterceptor$FrameDeferredContinuation.resumeWith(FrameDeferringContinuationInterceptor.jvmAndAndroid.kt:187)
+	at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:165)
+	at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:154)
+	at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:470)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core(CancellableContinuationImpl.kt:504)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$kotlinx_coroutines_core$default(CancellableContinuationImpl.kt:493)
+	at kotlinx.coroutines.CancellableContinuationImpl.resumeWith(CancellableContinuationImpl.kt:359)
+	at retrofit2.KotlinExtensions$awaitResponse$2$2.onResponse(KotlinExtensions.kt:99)
+	at retrofit2.OkHttpCall$1.onResponse(OkHttpCall.java:164)
+	at okhttp3.internal.connection.RealCall$AsyncCall.run(RealCall.kt:519)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1100)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:1572)
+
+FAILURES!!!
+Tests run: 9,  Failures: 2
+
+
+INSTRUMENTATION_CODE: -1

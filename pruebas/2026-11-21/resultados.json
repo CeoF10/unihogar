@@ -1,0 +1,123 @@
+{
+  "fecha": "2026-11-21",
+  "zona_horaria": "America/Guayaquil",
+  "api": {
+    "aprobadas": 38,
+    "fallidas": 0
+  },
+  "android": [
+    {
+      "configuracion": "Android 17 API 37, 1080x2400, densidad 420",
+      "casos": [
+        {
+          "clase": "com.example.unihogarguaranda.AppAppearanceTest",
+          "caso": "welcomeActionsRemainAccessible",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.AppAppearanceTest",
+          "caso": "catalogCategoriesAndFavoritesWork",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "ownerCanMarkLocationManuallyAndResumeWizard",
+          "estado": "fallido"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "favoritePersistsAfterLogoutAndLogin",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "detailComparisonAndContactCopyUseRealListing",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "ownerCanAcceptVisitAndItDoesNotRentTheListing",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "credentialsAreRejectedAndRecoveryIsAvailable",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "filterAndMapSurviveRotationWithoutLocationPermission",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.NativePublishingTest",
+          "caso": "ownerPublishesWithSystemPhotoPicker",
+          "estado": "inconcluso",
+          "motivo": "No se cerró el recorrido en este tamaño; el último emulador perdió su conexión de pruebas."
+        }
+      ]
+    },
+    {
+      "configuracion": "Android 17 API 37, 720x1280, densidad 320",
+      "casos": [
+        {
+          "clase": "com.example.unihogarguaranda.AppAppearanceTest",
+          "caso": "welcomeActionsRemainAccessible",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.AppAppearanceTest",
+          "caso": "catalogCategoriesAndFavoritesWork",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "ownerCanMarkLocationManuallyAndResumeWizard",
+          "estado": "fallido"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "favoritePersistsAfterLogoutAndLogin",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "detailComparisonAndContactCopyUseRealListing",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "ownerCanAcceptVisitAndItDoesNotRentTheListing",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "credentialsAreRejectedAndRecoveryIsAvailable",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.IntegratedFlowTest",
+          "caso": "filterAndMapSurviveRotationWithoutLocationPermission",
+          "estado": "aprobado"
+        },
+        {
+          "clase": "com.example.unihogarguaranda.NativePublishingTest",
+          "caso": "ownerPublishesWithSystemPhotoPicker",
+          "estado": "aprobado"
+        }
+      ]
+    }
+  ],
+  "correo_produccion": {
+    "registro_http": 201,
+    "recuperacion_http": 200,
+    "acceso_sin_confirmar_http": 403,
+    "mensajes_encontrados": 0,
+    "resultado": "Entrega sin aprobar durante la ventana de comprobación",
+    "cuenta_temporal": "Eliminada en Supabase, ID 8, una sola fila"
+  },
+  "usabilidad": {
+    "participantes_reales": 0,
+    "protocolo_preparado_para": 5
+  }
+}
