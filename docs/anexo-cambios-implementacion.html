@@ -1,0 +1,53 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><title>UniHogar Guaranda · Anexo de cambios de implementación</title>
+<style>
+@page{size:A4;margin:20mm 18mm}
+body{font-family:"Times New Roman",Times,serif;color:#111;font-size:12pt;line-height:1.5}
+h1{font-size:14pt;text-align:center;margin:0 0 4px}
+.sub{text-align:center;margin:0 0 16px;font-size:11pt}
+h2{font-size:12pt;margin:16px 0 6px}
+p{text-align:justify;margin:6px 0}
+table{border-collapse:collapse;width:100%;margin:6px 0;font-size:10.5pt}
+tr{break-inside:avoid}
+thead,tr:first-child{break-after:avoid}
+th,td{border:1px solid #444;padding:4px 6px;text-align:left;vertical-align:top}
+th{background:#e8e8e8}
+.nota{font-size:10pt;font-style:italic;margin:2px 0 10px}
+</style>
+<h1>Anexo 9. Cambios entre la propuesta y la implementación</h1>
+<p class="sub">UniHogar Guaranda · Sebastian Velastegui y Neicer Jimenez · 21 de noviembre de 2026</p>
+
+<h2>1. Propósito</h2>
+<p>Según la regla de control del Anexo 6, los diagramas y las tablas del informe se actualizan cuando cambia el diseño implementado. Este anexo registra las decisiones tecnológicas que difieren de las Tablas 4 y 5 y de la Figura 1 y sus razones. También presenta las evidencias obtenidas al validar el producto mínimo viable.</p>
+
+<h2>2. Cambios tecnológicos</h2>
+<p><b>Tabla 13</b><br><i>Comparación entre la pila propuesta y la pila implementada</i></p>
+<table>
+<tr><th>Elemento</th><th>Propuesta (Tablas 4 y 5)</th><th>Implementación</th><th>Justificación</th></tr>
+<tr><td>Backend</td><td>Spring Boot 3 y Kotlin, Spring Security, JWT</td><td>Node.js 22 y Express 5, JWT (HS256) y bcrypt</td><td>Despliegue gratuito en Render con poca memoria y arranque rápido. Mantiene la API REST modular, la validación en el servidor y la autorización por rol y por dueño en cada operación (RNF01).</td></tr>
+<tr><td>Persistencia</td><td>PostgreSQL 16 con Spring Data JPA / Hibernate</td><td>PostgreSQL 16 con consultas SQL parametrizadas (<code>pg</code>) y migraciones versionadas</td><td>Se conservan las claves foráneas, el favorito único, los estados controlados y las transacciones (RNF05). En producción se usa Supabase.</td></tr>
+<tr><td>Mapas</td><td>Google Maps SDK y Maps Compose</td><td>osmdroid con OpenStreetMap</td><td>No requiere facturación, cuotas ni claves de Google, lo que elimina el riesgo de la Tabla 12 por falta de facturación o cuota. Cumple RF07: marcadores, campus, mismo filtro que la lista y ubicación manual sin GPS.</td></tr>
+<tr><td>Almacenamiento local</td><td>Room</td><td>SharedPreferences para la sesión, caché de imágenes de Coil y estado guardado al girar</td><td>El MVP trabaja en línea; la consulta sin internet no era un requisito funcional. Room queda como mejora.</td></tr>
+<tr><td>Notificaciones</td><td>Firebase Cloud Messaging</td><td>No implementado; las respuestas a visitas se consultan en <b>Perfil → Visitas</b></td><td>No figura entre los RF01 a RF14. Se retiró para no depender de otro servicio externo.</td></tr>
+<tr><td>Correo</td><td>No especificado</td><td>Brevo (plan gratuito, 300 correos al día)</td><td>Envía la confirmación de cuenta (RF01) y la recuperación con enlace temporal de un solo uso (RF02).</td></tr>
+<tr><td>Fotografías</td><td>Archivos fuera de la base; metadatos en PostgreSQL</td><td>Tabla <code>archivo</code> en PostgreSQL; metadatos y orden en <code>foto</code></td><td>El disco del plan gratuito de Render se borra en cada reinicio. Guardarlas en la base evita perder imágenes y permite respaldarlas junto con los datos (RNF06).</td></tr>
+<tr><td>Mejora visual</td><td>Visor 360° o integración 3D</td><td>Visor 360° propio (WebGL) y modelo 3D ilustrativo configurable</td><td>Ambos están aislados: la ficha funciona sin ellos (RF14). El 3D se arma con las medidas del cuarto y no depende de la cobertura 3D de Google en Guaranda.</td></tr>
+<tr><td>Versión mínima</td><td>Android 10 o superior</td><td>Android 7.0 (API 24) o superior; compilado para API 37</td><td>Los SDK elegidos lo permiten y amplía los teléfonos compatibles (RNF04).</td></tr>
+</table>
+<p class="nota">Nota. La arquitectura sigue siendo cliente-servidor en capas: app nativa Android (Kotlin, Jetpack Compose, MVVM y repositorio), API REST, PostgreSQL y servicios externos (OpenStreetMap, Brevo y WhatsApp). En la Figura 1 deben leerse Express en lugar de Spring Boot y OpenStreetMap en lugar de Google Maps.</p>
+
+<h2>3. Evidencias de validación</h2>
+<p><b>Tabla 14</b><br><i>Resultados obtenidos frente a los requisitos no funcionales</i></p>
+<table>
+<tr><th>Requisito</th><th>Resultado</th></tr>
+<tr><td>RNF01 Seguridad</td><td>HTTPS en producción, contraseñas con bcrypt, tokens con vencimiento a los 7 días y enlaces de correo guardados solo como hash. Una cuenta no puede modificar el anuncio de otra ni llamando directamente a la API.</td></tr>
+<tr><td>RNF02 Rendimiento</td><td>Con 200 anuncios, 20 clientes concurrentes y 300 búsquedas, el percentil 95 fue de 52,7 ms en red local (meta: menos de 2 s).</td></tr>
+<tr><td>RNF03 Usabilidad</td><td>Estados de carga, vacío y error en el flujo principal. El protocolo para cinco participantes está preparado; los resultados se registrarán cuando se realicen las sesiones.</td></tr>
+<tr><td>RNF04 Compatibilidad</td><td>Recorridos automatizados en dos configuraciones de emulador Android 17 (1080 × 2400 y 720 × 1280), con giro de pantalla y GPS denegado. Se corrigió la pérdida de servicios, cargos y fotos al girar; la publicación completa se comprobó girando dos veces.</td></tr>
+<tr><td>RNF05 Integridad</td><td>Favorito único, visitas activas sin duplicar y estados controlados. Aceptar una visita no marca el inmueble como arrendado.</td></tr>
+<tr><td>RNF06 Recuperación</td><td>Se restauró un respaldo de prueba y se compararon la cantidad, el tamaño y el contenido de los archivos restaurados.</td></tr>
+<tr><td>RNF07 Privacidad y costo</td><td>Los documentos del expediente nunca se publican. Sin claves de Google ni facturación: todos los servicios usan planes gratuitos.</td></tr>
+</table>
+
+<h2>4. Producto publicado</h2>
+<p>La API se publicó en <i>https://unihogar-api.onrender.com/api</i> y el panel administrativo en <i>https://unihogar-admin.onrender.com</i>. La base de producción contiene cinco anuncios ficticios de demostración, cada uno con fotografías, panorama 360° y modelo 3D. El APK de la versión 1.0 está firmado y usa la API publicada.</p>
+</html>
